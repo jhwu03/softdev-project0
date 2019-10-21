@@ -1,0 +1,2 @@
+tanM -- 2019-10-20 21:00\n
+created devlog.txt, added design.pdf, created README.md
