@@ -10,13 +10,15 @@ tanM -- 2019-10-22 1:03
 Article:
 Main Takeaways:
 - the internet is on the brink a collapsing every minute of the day
-- Why?The code written ten years ago was made to just work for the next few hours with errors and code not solved and have really bad documentation
+- Why?The code written ten years ago was made to just work for the next few hours with errors and code not solved and have really
+bad documentation
 - A project can be a mess if it is full of components that don’t even know what they’re doing in the project
 - Code will always be flawed if it involves writing big chunks and it very complex
 - It gets even more complex when you cut corners and use code that you don’t fully understand
 This article was a very relatable description of issues we’ve all run into like messy code and intensive debugging and has outlined the solutions by sarcastically pointing out the problems as if they are so obviously wrong.
 When it comes to commenting:
-Our team should comment a section of code’s purpose before coding. We should also block out where each block of code should go so we can find the method or problem easier. Should also comment on what a new method does so everyone is not lost
+Our team should comment a section of code’s purpose before coding. We should also block out where each block of code should go so
+we can find the method or problem easier. Should also comment on what a new method does so everyone is not lost
 When it comes to debugging:
 Write down any problems with as much detail as possible. If we cannot solve that day, 
 we write the issue we had in the devlog for us to look at the next day
