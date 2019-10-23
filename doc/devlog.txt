@@ -15,7 +15,8 @@ bad documentation
 - A project can be a mess if it is full of components that don’t even know what they’re doing in the project
 - Code will always be flawed if it involves writing big chunks and it very complex
 - It gets even more complex when you cut corners and use code that you don’t fully understand
-This article was a very relatable description of issues we’ve all run into like messy code and intensive debugging and has outlined the solutions by sarcastically pointing out the problems as if they are so obviously wrong.
+This article was a very relatable description of issues we’ve all run into like messy code and intensive debugging and has
+outlined the solutions by sarcastically pointing out the problems as if they are so obviously wrong.
 When it comes to commenting:
 Our team should comment a section of code’s purpose before coding. We should also block out where each block of code should go so
 we can find the method or problem easier. Should also comment on what a new method does so everyone is not lost
