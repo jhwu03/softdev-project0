@@ -3,23 +3,24 @@
 #skeleton :: SQLITE3 BASICS
 #Oct 2019
 
-import sqlite3   #enable control of an sqlite database
-import csv       #facilitate CSV I/O
+import sqlite3
+import csv
 
+def createTable():
+    DB_FILE="data/databases.db"
 
-DB_FILE="../data/databases.db"
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
 
-db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-c = db.cursor()               #facilitate db ops
+    #==========================================================
 
-#==========================================================
+    command = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT);"
+    c.execute(command)
+    command = "CREATE TABLE IF NOT EXISTS blogs (user_id INTEGER, blog_id INTEGER, blog_name TEXT);"
+    c.execute(command)
+    command = "CREATE TABLE IF NOT EXISTS entries (user_id INTEGER, blog_id INTEGER, entry_num INTEGER, entry_text TEXT);"
+    c.execute(command)
+    #==========================================================
 
-# < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
-
-command = ""          # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
-
-#==========================================================
-
-db.commit() #save changes
-db.close()  #close database
+    db.commit() #save changes
+    db.close()  #close database
