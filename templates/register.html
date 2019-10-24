@@ -1,0 +1,26 @@
+{% extends "header.html" %}
+
+{% block header %}
+  TOPZ BLOGZ
+{% endblock %}
+
+{% block title %}
+REGISTER:
+{% endblock %}
+<br>
+<form action='/register', method="POST">
+    Username:
+    <br>
+    <input type = 'text' name = 'username' > <br> <br> <br>
+    Password:
+    <br>
+    <input type = 'text' name = 'password1' > <br> <br>
+    Confirm Password:
+    <br>
+    <input type = 'text' name = 'password2' > <br> <br>
+    <input type = 'submit' name = 'sub1'>
+    <br>
+    <br>
+    <br>
+</form>
+{% block %}

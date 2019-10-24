@@ -1,0 +1,23 @@
+{% extends "header.html" %}
+
+{% block header %}
+  TOPZ BLOGZ
+{% endblock %}
+
+{% block title %}
+LOGIN:
+{% endblock %}
+<br>
+<form action='/login', method="POST">
+    Username:
+    <br>
+    <input type = 'text' name = 'username' > <br> <br> <br>
+    Password:
+    <br>
+    <input type = 'text' name = 'password' > <br> <br>
+    <input type = 'submit' name = 'sub1'>
+    <br>
+    <br>
+    <br>
+</form>
+{% block %}
