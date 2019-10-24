@@ -8,8 +8,8 @@
             <h1> TOPZ BLOGZ </h1>
 
             <!-- Home button brings the user back to the home page -->
-            <form action='/', method="POST">
-                <input type = 'submit' name = 'home' value = "Home">
+            <form action='/', method="GET">
+                <input type = 'submit' value = "Home" >
             </form>
 
             <!-- Search bar to find specific user/blog/entry -->
@@ -36,7 +36,7 @@
 
     </head>
 
-    <body>  {# Children classes will change this for their own use #}
+    <body>
         {% block body %}
         {% endblock %}
         <br>
@@ -44,7 +44,7 @@
 
     <footer>
         {% block footer %}
-        Copyright by TOPZ BLOG
+        Copyright by TOPZ Incorporated
         {% endblock %}
     </footer>
 
