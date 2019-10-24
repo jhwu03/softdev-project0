@@ -13,13 +13,13 @@ def checkLogin(username, password):
     c = db.cursor()
 
     #==========================================================
-
-    command = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT);"
+    command = "SELECT id, username FROM users WHERE username = \"{}\" AND password = \"{}\";".format(username, password)
     c.execute(command)
-    command = "CREATE TABLE IF NOT EXISTS blogs (user_id INTEGER, blog_id INTEGER, blog_name TEXT);"
-    c.execute(command)
-    command = "CREATE TABLE IF NOT EXISTS entries (user_id INTEGER, blog_id INTEGER, entry_num INTEGER, entry_text TEXT);"
-    c.execute(command)
+    q = c.fetchall()
+    if len(q) == 0:
+        return -1 #return -1 if it doesn't exist
+    else:
+        return q[0][0] #return ID of user if exists
     #==========================================================
 
     db.commit() #save changes
