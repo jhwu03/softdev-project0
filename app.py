@@ -12,10 +12,14 @@ from utl import createDB
 from utl import login
 app = Flask(__name__)
 
+createDB.createTable() #always create tables when first run, just in case tables don't exist
+
+
 @app.route("/")
-def hello_world():
-    createDB.createTable() #always create tables when first run, just in case tables don't exist
-    return "hi"
+def home():
+    return render_template("home.html")
+
+
 
 if __name__ == "__main__":
     app.debug = True
