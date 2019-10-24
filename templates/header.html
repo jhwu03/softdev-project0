@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+  <head>
+    <meta charset='utf-8'>
+
+    <header>
+      {% block header %}
+        TOPZ BLOGZ
+      {% endblock %}
+  </header>
+
+  <title>
+      {% block title %}
+      {% endblock %}
+  </title>
+
+  </head>
+
+  <body>  {# Children classes will change this for their own use #}
+    {% block body %}
+    {% endblock %}
+      <br>
+  </body>
+
+  <footer>
+    {% block footer %}
+      Copyright by TOPZ BLOG
+    {% endblock %}
+  </footer>
+
+</html>
