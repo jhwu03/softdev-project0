@@ -16,10 +16,6 @@ app = Flask(__name__)
 
 createDB.createTable() #always create tables when first run, just in case tables don't exist
 
-DB_FILE = "data/database.db"
-db = sqlite3.connect(DB_FILE) #opens existing file or it makes new one if it does not exit
-c = db.cursor()               #facilitate db ops
-
 @app.route("/")
 def firstLogin():
     return render_template('login.html',
