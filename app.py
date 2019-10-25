@@ -2,7 +2,6 @@
 # SoftDev1 PD 9
 # p00
 
-
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -56,6 +55,7 @@ def home():
     return render_template("home.html",
         username = user,
         recentEntries = entries)
+
 
 if __name__ == "__main__":
     app.debug = True
