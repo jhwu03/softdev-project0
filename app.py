@@ -55,6 +55,11 @@ def home():
         username = user,
         recentEntries = entries)
 
+@app.route("/{}".format(username))
+def userPage():
+    #username = session[usernae] reutrn specific template
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
