@@ -34,12 +34,18 @@ def login():
 @app.route("/register")
 def register():
     username = request.form["username"]
-    password = request.form["password"]
+    password1 = request.form["password1"]
+    password2 = request.form["password2"]
+
+    #VALID REPRESENTS WHETHER THE USERNAME IS UNIQUE OR NOT!! CHECKLOGIN METHOD
     #valid = checkLogin.checkLogin(username,password)
     valid = 0
     if (valid == -1):
         return render_template('register.html',
             errorMessage = "Username already taken")
+    if (password1 != password2): #.equals() ?)
+        return render_template('register.html',
+            errorMessage = "Passwords do not match. Please try again.")
     return redirect(url_for("home", user="NEWUSER"))
 
 @app.route("/home")
