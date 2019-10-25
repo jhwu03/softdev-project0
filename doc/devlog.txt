@@ -1,5 +1,16 @@
+tanM -- 2019-10-24 22:56
+NEW:
+- login, register pages
+- home page
+- header + inheritance for html files
+- checkLogin method working
+We have almost completed the user aspect of the website. Users should be to log into an existing
+account and register a new account. We have not added functionality for adding blogs and entries
+though. We are currently working on displaying blogs and creating methods to add blogs into databases.
+We are behind schedule but are still expected to finish on time.
+
 tanM -- 2019-10-23 14:45
-Updated the design doc to v2. 
+Updated the design doc to v2.
 CHANGES:
 - user cannot view pages without login. updated images and site map to follow
 NEW:
@@ -10,7 +21,7 @@ tanM -- 2019-10-22 1:03
 Article:
 Main Takeaways:
 - the internet is on the brink a collapsing every minute of the day
-- Why?The code written ten years ago was made to just work for the next few hours with errors and code not solved and have really
+- Why? The code written ten years ago was made to just work for the next few hours with errors and code not solved and have really
 bad documentation
 - A project can be a mess if it is full of components that don’t even know what they’re doing in the project
 - Code will always be flawed if it involves writing big chunks and it very complex
@@ -21,27 +32,27 @@ When it comes to commenting:
 Our team should comment a section of code’s purpose before coding. We should also block out where each block of code should go so
 we can find the method or problem easier. Should also comment on what a new method does so everyone is not lost
 When it comes to debugging:
-Write down any problems with as much detail as possible. If we cannot solve that day, 
+Write down any problems with as much detail as possible. If we cannot solve that day,
 we write the issue we had in the devlog for us to look at the next day
 When it comes to using any methods we find online:
-Always suggest we don’t need it unless there is no other way to do it. If we use it, we must understand 
+Always suggest we don’t need it unless there is no other way to do it. If we use it, we must understand
 its syntax and why it works for debugging purposes
 
 tanM -- 2019-10-21 23:31
 Sqlite join: allows SELECT function to return a set with database information from two or more tables. Different JOIN functions
 will return different variations of information, prioritizing different information in each one. This will be useful in linking
-together our users, blogs, and entries tables. 
+together our users, blogs, and entries tables.
 Sqlite inner join: allows SELECT function to return a set with database information from two different tables if there is a
 corresponding “id” value that is the same between each one. This is useful if we are trying to link users to their blogs, and
 then their blogs to their entries, or all three together. Using this may make linking the three much cleaner, and make it easier
-to display entries with the correct information. 
+to display entries with the correct information.
 Sqlite left join: allows SELECT function to return a set with information from one database, and any corresponding information
 from another. In left join, all selected information from the first or “left” database is entered into the set, and all
 corresponding information from the second database is included if they match the LEFT JOIN condition. If they don’t, the
 information from the first set is still included. This is useful for showing all blogs from a user, because it would not be
-hindered if a user does not have any blogs. 
+hindered if a user does not have any blogs.
 Sqlite cross join: allows SELECT function to return a set that is a product of two or more sets. Each combination that can be
-made using the two databases will be made and returned. Not sure how this is going to be useful in our project. 
+made using the two databases will be made and returned. Not sure how this is going to be useful in our project.
 
 tanM -- 2019-10-20 21:00
 created devlog.txt, added design.pdf, created README.md
