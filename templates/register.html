@@ -1,26 +1,45 @@
-{% extends "header.html" %}
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+    <head>
+        <meta charset='utf-8'>
+        <header>
+            <h1> WELCOME TO TOPZ BLOGZ </h1>
+        </header>
+    </head>
 
-{% block header %}
-  TOPZ BLOGZ
-{% endblock %}
+    <body>
 
-{% block title %}
-REGISTER:
-{% endblock %}
-<br>
-<form action='/register', method="POST">
-    Username:
-    <br>
-    <input type = 'text' name = 'username' > <br> <br> <br>
-    Password:
-    <br>
-    <input type = 'text' name = 'password1' > <br> <br>
-    Confirm Password:
-    <br>
-    <input type = 'text' name = 'password2' > <br> <br>
-    <input type = 'submit' name = 'sub1'>
-    <br>
-    <br>
-    <br>
-</form>
-{% block %}
+        Please register to enter the site:
+        <br>
+        {{message}}
+        <br>
+        <form action='/', method="POST">
+            Username:
+            <br>
+            <input type = 'text' name = 'username' >
+            <br>
+            <br>
+            Password:
+            <br>
+            <input type = 'text' name = 'password1' >
+            <br>
+            <br>
+            Confirm password:
+            <br>
+            <input type = 'text' name = 'password2' >
+            <br>
+            <br>
+            <input type = 'submit' name = 'sub1'>
+            <br>
+            <br>
+        </form>
+
+    </body>
+
+    <footer>
+        <br><br><br><br><br><br>
+        Copyright by TOPZ Incorporated
+
+    </footer>
+
+</html>
