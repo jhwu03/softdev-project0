@@ -5,11 +5,10 @@
 
 import sqlite3
 import csv
+import constants
 
 def createTable():
-    DB_FILE="data/databases.db"
-
-    db = sqlite3.connect(DB_FILE)
+    db = sqlite3.connect(constants.DB_FILE)
     c = db.cursor()
 
     #==========================================================
