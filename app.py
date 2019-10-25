@@ -10,6 +10,7 @@ from flask import redirect
 from flask import url_for
 from utl import createDB
 from utl import checkLogin
+from utl import newuser
 import sqlite3
 app = Flask(__name__)
 
