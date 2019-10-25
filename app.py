@@ -9,6 +9,7 @@ from flask import redirect
 from flask import url_for
 from utl import createDB
 from utl import checkLogin
+from utl import readDB
 app = Flask(__name__)
 
 createDB.createTable() #always create tables when first run, just in case tables don't exist
