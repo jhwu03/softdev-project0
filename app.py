@@ -30,7 +30,7 @@ def login():
     username = request.form["username"]
     password = request.form["password"]
     #valid = checkLogin.checkLogin(username,password)
-    valid = 0 #temp for testing
+    valid = checkLogin.checkLogin(username, password) #temp for testing
     if (valid == -1):
         return render_template('login.html',
             errorMessage = "Invalid Credentials")
