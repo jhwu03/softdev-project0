@@ -1,23 +1,43 @@
-{% extends "header.html" %}
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+    <head>
+        <meta charset='utf-8'>
+        <header>
+            <h1> WELCOME TO TOPZ BLOGZ </h1>
+        </header>
+    </head>
 
-{% block header %}
-  TOPZ BLOGZ
-{% endblock %}
+    <body>
 
-{% block title %}
-LOGIN:
-{% endblock %}
-<br>
-<form action='/login', method="POST">
-    Username:
-    <br>
-    <input type = 'text' name = 'username' > <br> <br> <br>
-    Password:
-    <br>
-    <input type = 'text' name = 'password' > <br> <br>
-    <input type = 'submit' name = 'sub1'>
-    <br>
-    <br>
-    <br>
-</form>
-{% block %}
+        Please log in to enter the site:
+        <br>
+        <br>
+        {{errorMessage}}
+        <br>
+        <form action='/login', method="POST">
+            Username:
+            <br>
+            <input type = 'text' name = 'username' >
+            <br>
+            <br>
+            Password:
+            <br>
+            <input type = 'text' name = 'password' >
+            <br>
+            <br>
+            <input type = 'submit' name = 'sub1'>
+            <br>
+            <br>
+        </form>
+        <br>
+        New to the site? Register here.
+
+    </body>
+
+    <footer>
+        <br><br><br><br><br><br>
+        Copyright by TOPZ Incorporated
+
+    </footer>
+
+</html>

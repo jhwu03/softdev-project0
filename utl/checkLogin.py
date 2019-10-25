@@ -7,6 +7,11 @@ import sqlite3
 import csv
 
 def checkLogin(username, password):
+
+    session['username'] = request.form["username"]          # assign username key in session to inputted username
+    session['password'] = request.form["password"]          # assign password key in session to inputted password
+
+
     DB_FILE="data/databases.db"
 
     db = sqlite3.connect(DB_FILE)
