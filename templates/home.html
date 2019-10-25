@@ -5,11 +5,16 @@
 {% endblock %}
 
 {% block body %}
-  Welcome travelor. Moonlight ah
-  <br>
-  <form action='/logout', method="POST">
-      <input type = 'submit' name = 'logout' value = "Log Out">
-  </form>
-  <br>
-  <br>
+
+    <h3> Welcome {{username}}! </h3>
+    <br>
+    View featured entries:
+    <br>
+    <br>
+    {{recentEntries}}
+    <br>
+
+
+
+    <br><br><br><br><br>
 {% endblock %}

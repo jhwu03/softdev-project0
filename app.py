@@ -17,7 +17,12 @@ createDB.createTable() #always create tables when first run, just in case tables
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    #VARIABLES TO PASS:
+    user = "USER"
+    entries = "DISPLAY RECENT ENTRIES"
+    return render_template("home.html",
+        username = user,
+        recentEntries = entries)
 
 
 
