@@ -12,6 +12,20 @@
     <br>
     <br>
     {{recentEntries}}
+    <table style="width:100%">
+    <tr>
+      <th>Username</th>
+      <th>Blog Name</th>
+      <th>Blog</th>
+    </tr>
+    {% for entry in entries %}
+      <tr>
+        <td>{{ username }}</td>
+        <td>{{ BlogName }}</td>
+        <td>{{ latestEntry }}</td>
+      </tr>
+    (% endfor %)
+    </table>
     <br>
 
 

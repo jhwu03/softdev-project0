@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 createDB.createTable() #always create tables when first run, just in case tables don't exist
 
-DB_FILE = "data/database.db"
+DB_FILE = "data/databases.db"
 db = sqlite3.connect(DB_FILE) #opens existing file or it makes new one if it does not exit
 c = db.cursor()               #facilitate db ops
 
@@ -51,7 +51,7 @@ def register():
 def home():
     user = request.args.get('user')
     #VARIABLES TO PASS
-    command = "SELECT entry
+    command = "SELECT users.username
     entries = "DISPLAY RECENT ENTRIES"
     return render_template("home.html",
         username = user,
