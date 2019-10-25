@@ -41,7 +41,8 @@ def login():
 def register():
     username = request.form["username"]
     password = request.form["password"]
-    #valid = checkLogin.checkLogin(username,password)
+    valid = checkLogin.checkLogin(username,password)
+    print(valid)
     valid = 0
     if (valid == -1):
         return render_template('register.html',
