@@ -37,17 +37,17 @@ def login():
 def register():
     username = request.form["username"]
     password = request.form["password"]
-    valid = checkLogin.checkLogin(username,password)
-    print(valid)
-    valid = 0
-    if (valid == -1):
+
+    #add user checks if account exists (returns false). If DNE, enters into database, returns true
+    valid = newuser.addUser(username, password)
+    if (valid == False):
         return render_template('register.html',
             errorMessage = "Username already taken")
-    return redirect(url_for("home", user="NEWUSER"))
+    return redirect(url_for("home", userDATA=username))
 
 @app.route("/home")
 def home():
-    user = request.args.get('user')
+    user = request.args.get('userDATA')
     #VARIABLES TO PASS
     command = "SELECT blog.username, entries.entry "
     entries = "DISPLAY RECENT ENTRIES"
