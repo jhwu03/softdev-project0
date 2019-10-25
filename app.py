@@ -51,7 +51,7 @@ def register():
 def home():
     user = request.args.get('user')
     #VARIABLES TO PASS
-    command = "SELECT blog.username, entries.entry "
+    command = "SELECT entry
     entries = "DISPLAY RECENT ENTRIES"
     return render_template("home.html",
         username = user,
