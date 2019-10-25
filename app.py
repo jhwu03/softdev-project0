@@ -2,6 +2,7 @@
 # SoftDev1 PD 9
 # p00
 
+
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -9,9 +10,14 @@ from flask import redirect
 from flask import url_for
 from utl import createDB
 from utl import checkLogin
+import sqlite3
 app = Flask(__name__)
 
 createDB.createTable() #always create tables when first run, just in case tables don't exist
+
+DB_FILE = "data/database.db"
+db = sqlite3.connect(DB_FILE) #opens existing file or it makes new one if it does not exit
+c = db.cursor()               #facilitate db ops
 
 @app.route("/")
 def firstLogin():
@@ -45,11 +51,11 @@ def register():
 def home():
     user = request.args.get('user')
     #VARIABLES TO PASS
+    command = "SELECT blog.username, entries.entry "
     entries = "DISPLAY RECENT ENTRIES"
     return render_template("home.html",
         username = user,
         recentEntries = entries)
-
 
 if __name__ == "__main__":
     app.debug = True
