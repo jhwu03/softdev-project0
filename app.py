@@ -14,6 +14,7 @@ from utl import checkLogin
 from utl import checkUser
 from utl import newuser
 from utl import readDB
+from utl import search
 import sqlite3
 import os
 app = Flask(__name__)
@@ -111,7 +112,15 @@ def blogPage(user):
 def entryPage(user):
     return "entry page"
 
-
+@app.route("/search", methods = ['POST'])
+def search():
+    if ('username' in session and 'password' in session):
+        if('search1' in request.form and 'keywords' in request.form):
+            session['search'] = request.form['keywords']
+            input = str(session['search'])
+            results = search.searchBlogs(input)
+            return render_template('searchresults.html', searchresults = results )
+    return redirect(url_for("firstLogin"))
 
 if __name__ == "__main__":
     app.debug = True

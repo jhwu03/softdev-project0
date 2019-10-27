@@ -13,15 +13,18 @@
             </form>
 
             <!-- Search bar to find specific user/blog/entry -->
-            <form action='/search', method="GET">
-                <input type = 'submit' name = 'search' value = "Search">
+            <form action='/search', method="POST">
                 <input type = 'text' name = 'keywords'>
+                <input type = 'submit' name = 'search1', value = 'Search'>
             </form>
 
             <form action='/user', method="GET">
                 <input type = 'submit' name = 'profile' value = "Profile">
             </form>
 
+            <form action='/home'>
+                <input type = 'submit' name = 'home' value = "Home">
+            </form>
             {% endblock %}
         </header>
 

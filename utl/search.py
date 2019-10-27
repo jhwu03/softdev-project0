@@ -2,13 +2,19 @@
 #SoftDev
 #search :: Searching
 #Oct 2019
-import readDB
-def search(search):
+from utl import readDB
+def searchBlogs(search):
     allBlogs = readDB.getAllBlogs()
     results = []
     for blog in allBlogs:
         if search in str(blog[0]):
             results.append(blog)
-        else if search in str(blog[1]):
+        elif search in str(blog[1]):
             results.append(blog)
-        else if
+        elif search in str(blog[2]):
+            results.append(blog)
+        elif search in str(blog[3]):
+            results.append(blog)
+    return results
+
+#print(search("Jacob's"))
