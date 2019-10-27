@@ -7,7 +7,7 @@ import sqlite3
 import csv
 
 def addUser(username, password):
-    DB_FILE="../data/databases.db"
+    DB_FILE="data/databases.db"
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()

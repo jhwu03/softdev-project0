@@ -5,7 +5,7 @@
 
 import sqlite3
 import csv
-import constants
+from utl import constants
 
 def createTable():
     db = sqlite3.connect(constants.DB_FILE)
