@@ -20,13 +20,14 @@ def addUser(username, password):
         command = "SELECT user_id FROM users;"
         c.execute(command)
         q = c.fetchall()
+        new_id = q[len(q)-1][0]+1
         command = "INSERT INTO users VALUES({}, \"{}\", \"{}\");".format(q[len(q)-1][0]+1,username,password)
         c.execute(command)
         db.commit() #save changes
         db.close()  #close database
-        return True
+        return new_id
     else:
         db.commit() #save changes
         db.close()  #close database
-        return False
+        return -1
     #==========================================================
