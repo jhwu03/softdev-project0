@@ -7,7 +7,7 @@ import sqlite3
 import csv
 
 def addEntry(userid, blogid, entrytext):
-    DB_FILE="../data/databases.db"
+    DB_FILE="data/databases.db"
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -62,3 +62,5 @@ def createBlog(userid, blogtitle):
 
     db.commit() #save changes
     db.close()  #close database
+
+addEntry(0,1,"This is so sad")
