@@ -140,10 +140,10 @@ def searchUp(keywords):
     the key word"""
     allBlogs = getAllBlogs()
     results = []
-    key = keywords.replace(",", "")
+    key = keywords.replace(",", "").lower()
     for blog in allBlogs:
         line = str(blog[0]) + " " + str(blog[1]) + " " + str(blog[2]) + " " + str(blog[3])
-        line = line.replace(",", "")
+        line = line.replace(",", "").lower()
         if key in line:
             results.append(blog)
     return results
