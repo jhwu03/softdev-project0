@@ -78,7 +78,7 @@ def logout():      # route logs out the user by getting rid of username and pass
 
 @app.route("/home")
 def home():
-    if (session):
+    if ('username' in session and 'password' in session):
         user = session['username']
         #VARIABLES TO PASS
         entries = readDB.getAllBlogs()
