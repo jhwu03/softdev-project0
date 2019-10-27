@@ -14,7 +14,7 @@
         <br>
         {{errorMessage}}
         <br>
-        <form action='/login', method="GET">
+        <form action='/login', method="POST">
             Username:
             <br>
             <input type = 'text' name = 'username' >
@@ -29,9 +29,13 @@
             <br>
             <br>
         </form>
+
+
         <br>
         New to the site? Register here.
-
+        <form action='/register', method="GET">
+          <input type = 'submit' name = 'sub1', value = 'Register'>
+        </form>
     </body>
 
     <footer>
