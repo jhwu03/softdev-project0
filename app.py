@@ -41,10 +41,10 @@ def login():
 
 @app.route("/register", methods=["POST"])
 def register():
-    session['username'] = request.form["username"]          # assign username key in session to inputted username
-    session['password'] = request.form["password1"]          # assign password key in session to inputted password1
-    session['password2'] = request.form["password2"]          # assign password key in session to inputted password2
     if (session):
+        session['username'] = request.form["username"]          # assign username key in session to inputted username
+        session['password'] = request.form["password1"]          # assign password key in session to inputted password1
+        session['password2'] = request.form["password2"]          # assign password key in session to inputted password2
         username = session['username']
         password1 = session['password']
         password2 = session['password2']
