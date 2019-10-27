@@ -52,7 +52,6 @@ def register():
     #add user checks if account exists (returns false). If DNE, enters into database, returns true
 
 
-
 @app.route("/home")
 def home():
     user = request.args.get('user')
@@ -63,9 +62,13 @@ def home():
         username = user,
         recentEntries = entries)
 
-#@app.route("/{}".format(username))
-#def userPage():
+@app.route("/<user>")
+def userPage(user):
     #username = session[usernae] reutrn specific template
+    # if user DNE: return error template
+    return render_template("user.html",
+        user = user,
+        allBlogs="TEMP")
 
 
 if __name__ == "__main__":
