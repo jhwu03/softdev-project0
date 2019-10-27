@@ -11,6 +11,7 @@ from flask import url_for
 from flask import session
 from utl import createDB
 from utl import checkLogin
+from utl import checkUser
 from utl import newuser
 from utl import readDB
 import sqlite3
@@ -92,9 +93,21 @@ def home():
 def userPage(user):
     #username = session[usernae] reutrn specific template
     # if user DNE: return error template
+    #if (user == session["username"]):
+
     return render_template("user.html",
         user = user,
         allBlogs="TEMP")
+
+@app.route("/<user>/<blog>")
+def blogPage(user):
+
+    return "blog page"
+
+@app.route("/<user>/<blog>/<entry>")
+def entryPage(user):
+    return "entry page"
+
 
 
 if __name__ == "__main__":
