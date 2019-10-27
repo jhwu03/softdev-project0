@@ -22,32 +22,39 @@ def firstLogin():
         errorMessage = "")
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["GET"])
 def login():
-    username = request.form["username"]
-    password = request.form["password"]
-    #valid = checkLogin.checkLogin(username,password)
-    valid = checkLogin.checkLogin(username, password) #temp for testing
-    if (valid == -1):
-        return render_template('login.html',
-            errorMessage = "Invalid Credentials")
-    return redirect(url_for("home", user="LOGGEDIN"))
+    if (request.args):
+        username = request.args["username"]
+        password = request.args["password"]
+        validLogin = checkLogin.checkLogin(username, password) #temp for testing
+        if (validLogin == -1):
+            return render_template('login.html', errorMessage = "Invalid Credentials")
+        return redirect(url_for("home", user=username))
+    return render_template("login.html", errorMessage="")
 
-@app.route("/register")
+
+@app.route("/register", methods=["GET"])
 def register():
-    username = request.form["username"]
-    password = request.form["password"]
+    if (request.args):
+        username = request.args["username"]
+        password1 = request.args["password1"]
+        password2 = request.args["password2"]
+        if (password1 == password2):
+            if (newuser.addUser(username, password1) == True):
+                return redirect(url_for("home", user=username))
+            return render_template('register.html',
+                errorMessage = "Username already taken")
+        return render_template('register.html',
+            errorMessage = "Passwords do not match. Please try again.")
+    return render_template('register.html', errorMessage = "")
 
     #add user checks if account exists (returns false). If DNE, enters into database, returns true
-    valid = newuser.addUser(username, password)
-    if (valid == False):
-        return render_template('register.html',
-            errorMessage = "Username already taken")
-    return redirect(url_for("home", userDATA=username))
+
 
 @app.route("/home")
 def home():
-    user = request.args.get('userDATA')
+    user = request.args.get('user')
     #VARIABLES TO PASS
     command = "SELECT blog.username, entries.entry "
     entries = "DISPLAY RECENT ENTRIES"
@@ -55,10 +62,13 @@ def home():
         username = user,
         recentEntries = entries)
 
-# @app.route("/{}".format(username))
-# def userPage():
-#     return "hi"
-#     #username = session[usernae] reutrn specific template
+@app.route("/<user>")
+def userPage(user):
+    #username = session[usernae] reutrn specific template
+    # if user DNE: return error template
+    return render_template("user.html",
+        user = user,
+        allBlogs="TEMP")
 
 
 if __name__ == "__main__":
