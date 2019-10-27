@@ -26,7 +26,7 @@ def firstLogin():
 
 @app.route("/login", methods=["POST"])
 def login():
-    print(request.form)
+    #print(request.form)
     if(request.form['sub1'] == 'Register'):
         return render_template('register.html', errorMessage = "")
     else:
