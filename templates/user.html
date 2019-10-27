@@ -11,7 +11,15 @@
     Blogs:
     <br>
     <br>
-    {{allBlogs}}
+    {% for row in myBlogs %}
+        {% for blogName in row %}
+            <tr>
+                <td>{{blogName[0]}}</td>
+                <td>{{blog[1]}}</td>
+                <td>{{blog[2]}}</td>
+                <td>{{blog[3]}}</td>
+            </tr>
+    {% endfor %}
     <br>
 
 

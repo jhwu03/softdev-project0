@@ -18,12 +18,12 @@
         <th>Blog Title</th>
         <th>Entry</th>
       </tr>
-      {% for blog in recentEntries %}
+      {% for row in recentEntries %}
         <tr>
-          <td>{{blog[0]}}</td>
-          <td>{{blog[1]}}</td>
-          <td>{{blog[2]}}</td>
-          <td>{{blog[3]}}</td>
+          <td>{{row[0]}}</td>
+          <td>{{row[1]}}</td>
+          <td>{{row[2]}}</td>
+          <td>{{row[3]}}</td>
         </tr>
       {% endfor %}
     </table>
