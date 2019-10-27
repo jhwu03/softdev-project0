@@ -40,7 +40,7 @@ def editEntry(userid, blogid, entrynum, entrytext):
     db.close()  #close database
 
 def createBlog(userid, blogtitle):
-    DB_FILE="../data/databases.db"
+    DB_FILE="data/databases.db"
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -62,5 +62,3 @@ def createBlog(userid, blogtitle):
 
     db.commit() #save changes
     db.close()  #close database
-
-createBlog(0,"haha")
