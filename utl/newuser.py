@@ -25,6 +25,7 @@ def addUser(username, password):
         c.execute(command)
         db.commit() #save changes
         db.close()  #close database
+        print(new_id)
         return new_id
     else:
         db.commit() #save changes
