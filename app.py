@@ -28,7 +28,7 @@ def firstLogin():
 def login():
     print(request.form)
     if(request.form['sub1'] == 'Register'):
-        return redirect(url_for("register")), render_template('register.html', errorMessage = "")
+        return render_template('register.html', errorMessage = "")
     else:
         session['username'] = request.form["username"]          # assign username key in session to inputted username
         session['password'] = request.form["password"]          # assign password key in session to inputted password
