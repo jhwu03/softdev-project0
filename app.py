@@ -11,6 +11,7 @@ from flask import url_for
 from utl import createDB
 from utl import checkLogin
 from utl import newuser
+from utl import readDB
 import sqlite3
 app = Flask(__name__)
 
@@ -54,10 +55,9 @@ def register():
 
 @app.route("/home")
 def home():
-    user = request.args.get('user')
+    user = request.args.get('userDATA')
     #VARIABLES TO PASS
-    command = "SELECT blog.username, entries.entry "
-    entries = "DISPLAY RECENT ENTRIES"
+    entries = readDB.getAllBlogs()
     return render_template("home.html",
         username = user,
         recentEntries = entries)
