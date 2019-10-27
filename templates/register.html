@@ -13,7 +13,7 @@
         <br>
         {{errorMessage}}
         <br>
-        <form action='/register', method="POST">
+        <form action='/register', method="GET">
             Username:
             <br>
             <input type = 'text' name = 'username' >
@@ -33,7 +33,11 @@
             <br>
             <br>
         </form>
-
+        <br>
+        Already Have Account? Log In.
+        <form action='/register', method="POST">
+          <input type = 'submit' name = 'sub1', value = 'Log In'>
+        </form>
     </body>
 
     <footer>

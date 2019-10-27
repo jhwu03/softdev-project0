@@ -21,41 +21,55 @@ createDB.createTable() #always create tables when first run, just in case tables
 
 @app.route("/")
 def firstLogin():
-    return render_template('login.html',
-        errorMessage = "")
-
+    return render_template('login.html',errorMessage = "")
 
 @app.route("/login", methods=["POST"])
 def login():
-    session['username'] = request.form["username"]          # assign username key in session to inputted username
-    session['password'] = request.form["password"]          # assign password key in session to inputted password
-    if (session):
-        username = session['username']
-        password = session['password']
-        validLogin = checkLogin.checkLogin(username, password) #temp for testing
-        if (validLogin == -1):
-            return render_template('login.html', errorMessage = "Invalid Credentials")
-        return redirect(url_for("home"))
-    return render_template("login.html", errorMessage="")
+    print(request.form)
+    if(request.form['sub1'] == 'Register'):
+        return redirect(url_for("register")), render_template('register.html', errorMessage = "")
+    else:
+        session['username'] = request.form["username"]          # assign username key in session to inputted username
+        session['password'] = request.form["password"]          # assign password key in session to inputted password
+        if (session):
+            if(session['username'] == None and session['passsword'] == None):
+                return redirect(url_for("register")), render_template('register.html',errorMessage = "")
+            username = session['username']
+            password = session['password']
+            validLogin = checkLogin.checkLogin(username, password) #temp for testing
+            if (validLogin == -1):
+                return render_template('login.html', errorMessage = "Invalid Credentials")
+            return redirect(url_for("home"))
+        else:
+            return render_template('login.html',errorMessage = "")
 
 
 @app.route("/register", methods=["POST"])
+
 def register():
-    if (session):
+    if(request.form['sub1'] == 'Log In'):
+        return redirect(url_for("firstLogin"))
+    else:
         session['username'] = request.form["username"]          # assign username key in session to inputted username
         session['password'] = request.form["password1"]          # assign password key in session to inputted password1
         session['password2'] = request.form["password2"]          # assign password key in session to inputted password2
-        username = session['username']
-        password1 = session['password']
-        password2 = session['password2']
-        if (password1 == password2):
-            if (newuser.addUser(username, password1) == True):
-                return redirect(url_for("home"))
+        if (session):
+            if(session['username'] == None and session['passsword'] == None and session['password2'] == None):
+                return redirect(url_for("login")), render_template('login.html',errorMessage = "")
+            username = session['username']
+            password1 = session['password']
+            password2 = session['password2']
+            if (password1 == password2):
+                print("good passwords")
+                if (newuser.addUser(username, password1) == True):
+                    print("good overall")
+                    return redirect(url_for("home"))
+                return render_template('register.html',
+                    errorMessage = "Username already taken")
             return render_template('register.html',
-                errorMessage = "Username already taken")
-        return render_template('register.html',
-            errorMessage = "Passwords do not match. Please try again.")
-    return render_template('register.html', errorMessage = "")
+                errorMessage = "Passwords do not match. Please try again.")
+        else:
+            return render_template('register.html',errorMessage = "")
 
     #add user checks if account exists (returns false). If DNE, enters into database, returns true
 
@@ -66,7 +80,9 @@ def logout():                                               # route logs out the
     if 'password2' in session:
         session.pop('password2')
     return redirect(url_for("firstLogin"))                # redirect to beginning
-
+@app.route("/gotogegister", methods=["GET"])
+def reg():
+    return  redirect(url_for("register"))
 @app.route("/home")
 def home():
     user = session['username']
