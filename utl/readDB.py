@@ -88,7 +88,7 @@ def getAllBlogs():
     return blogs
 
 def getUserID(username):
-    DB_FILE="../data/databases.db"
+    DB_FILE="data/databases.db"
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
