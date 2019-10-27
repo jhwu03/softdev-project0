@@ -86,6 +86,25 @@ def getAllBlogs():
     db.close()  #close database
 
     return blogs
+
+def getUserID(username):
+    DB_FILE="../data/databases.db"
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    #==========================================================
+    command = "SELECT user_id FROM users WHERE username = \"{}\";".format(username)
+    c.execute(command)
+    q = c.fetchall()
+    if len(q) > 0:
+        return q[0][0]
+    else:
+        return -1
+    #==========================================================
+    db.commit() #save changes
+    db.close()  #close database
+
 def searchUp(search):
     """From the search input it will check through the blogs list on the homepage to
     see which blogs have usernames, blog numbers, blog names, and entries that contain
@@ -102,4 +121,5 @@ def searchUp(search):
         elif search in str(blog[3]):
             results.append(blog)
     return results
-print(displayBlogs(0))
+
+print(getUserID("jacksonzou"))

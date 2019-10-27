@@ -62,5 +62,3 @@ def createBlog(userid, blogtitle):
 
     db.commit() #save changes
     db.close()  #close database
-
-addEntry(0,1,"This is so sad")
