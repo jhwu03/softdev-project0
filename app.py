@@ -98,10 +98,10 @@ def userPage(user):
     if (user == session["username"]):
         return render_template("user.html",
             user = user,
-            myBlogs = readDB.displayBlogs(session["userID"]))
+            myBlogs = readDB.displayBlogs(user))
     return render_template("otherUser.html",
         user = user,
-        theirBlogs="TEMP")
+        theirBlogs=readDB.displayBlogs(user))
 
 @app.route("/<user>/<blog>")
 def blogPage(user):
