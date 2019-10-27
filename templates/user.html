@@ -12,14 +12,7 @@
     <br>
     <br>
     {% for row in myBlogs %}
-        {% for blogName in row %}
-            <tr>
-                <td>{{blogName[0]}}</td>
-                <td>{{blogName[1]}}</td>
-                <td>{{blogName[2]}}</td>
-                <td>{{blogName[3]}}</td>
-            </tr>
-        {% endfor %}
+        {{row[1]}}
     {% endfor %}
     <br>
 

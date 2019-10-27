@@ -11,7 +11,9 @@
     Blogs:
     <br>
     <br>
-    {{theirBlogs}}
+    {% for row in theirBlogs %}
+        {{row[1]}}
+    {% endfor %}
     <br>
 
 
