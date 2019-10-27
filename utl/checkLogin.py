@@ -23,5 +23,7 @@ def checkLogin(username, password):
 
     if len(q) == 0:
         return -1 #return -1 if it doesn't exist
+    if q[0][0] == "" or q[0][1] == "":
+        return -1
     else:
         return q[0][0] #return ID of user if exists

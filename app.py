@@ -33,8 +33,6 @@ def login():
         session['username'] = request.form["username"]          # assign username key in session to inputted username
         session['password'] = request.form["password"]          # assign password key in session to inputted password
         if (session):
-            if(session['username'] == None and session['passsword'] == None):
-                return redirect(url_for("register")), render_template('register.html',errorMessage = "")
             username = session['username']
             password = session['password']
             validLogin = checkLogin.checkLogin(username, password) #temp for testing
@@ -55,8 +53,6 @@ def register():
         session['password'] = request.form["password1"]          # assign password key in session to inputted password1
         session['password2'] = request.form["password2"]          # assign password key in session to inputted password2
         if (session):
-            if(session['username'] == None and session['passsword'] == None and session['password2'] == None):
-                return redirect(url_for("login")), render_template('login.html',errorMessage = "")
             username = session['username']
             password1 = session['password']
             password2 = session['password2']

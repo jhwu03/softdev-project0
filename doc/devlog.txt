@@ -1,3 +1,12 @@
+ohC -- 2019-10-27 15:30
+NEW:
+- Displayed all the featured entries on homepage
+- Made program use session
+- Fixed login to work with sessions and register as well
+- Made it so user can traverse between login and register
+ohC -- 2019-10-24 14:30
+NEW:
+- started work on displaying the blogs and entries on a page
 tanM -- 2019-10-24 22:56
 NEW:
 - login, register pages
