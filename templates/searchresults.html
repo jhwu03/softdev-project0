@@ -1,0 +1,32 @@
+{% extends "header.html" %}
+{% block title %}
+    TOPZ BLOG
+{% endblock %}
+
+{% block body %}
+
+    <h3> SEARCHES FOR {{ keyword }} </h3>
+    <br>
+    RESULTS:
+    <br>
+    <br>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>Blog Number</th>
+        <th>Blog Title</th>
+        <th>Entry</th>
+      </tr>
+      {% for blog in searchresults %}
+        <tr>
+          <td>{{blog[0]}}</td>
+          <td>{{blog[1]}}</td>
+          <td>{{blog[2]}}</td>
+          <td>{{blog[3]}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <br>
+
+    <br><br><br><br><br>
+{% endblock %}

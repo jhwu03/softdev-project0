@@ -119,7 +119,7 @@ def search():
             session['search'] = request.form['keywords']
             input = str(session['search'])
             results = search.searchBlogs(input)
-            return render_template('searchresults.html', searchresults = results )
+            return render_template('searchresults.html', searchresults = results, keyword = input)
     return redirect(url_for("firstLogin"))
 
 if __name__ == "__main__":
