@@ -69,14 +69,14 @@ def getAllBlogs():
 
     #==========================================================
     blogs = []
-    command = "SELECT user_id FROM users;"
+    command = "SELECT user_id, username FROM users;"
     c.execute(command)
     q = c.fetchall()
     for num in range(q[len(q)-1][0]+1):
         entries = displayBlogs(num)
         for entry in entries:
             adding = []
-            adding.append(num)
+            adding.append(q[num][1])
             adding.append(entry[0])
             adding.append(entry[1])
             adding.append(entry[len(entry)-1])
