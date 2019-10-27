@@ -82,20 +82,6 @@ def logout():      # route logs out the user by getting rid of username and pass
 
 @app.route("/home")
 def home():
-<<<<<<< HEAD
-=======
-
-    return render_template("home.html",
-        username = user,
-        recentEntries = entries)
-
-@app.route("/<user>")
-def userPage(user):
-    return redirect(url_for("firstLogin"))    # redirect to beginning
-
-@app.route("/home")
-def home():
->>>>>>> d76f0a56d4e283d088a58a365d3bf5ee85949759
     if (session):
         user = session['username']
         #VARIABLES TO PASS
