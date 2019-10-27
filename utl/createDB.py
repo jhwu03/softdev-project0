@@ -11,7 +11,6 @@ def createTable():
     c = db.cursor()
 
     #==========================================================
-
     command = "CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, username TEXT, password TEXT);"
     c.execute(command)
     command = "CREATE TABLE IF NOT EXISTS blogs (user_id INTEGER, blog_id INTEGER, blog_name TEXT);"
