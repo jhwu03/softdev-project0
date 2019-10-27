@@ -118,7 +118,7 @@ def search():
         if('search1' in request.form and 'keywords' in request.form):
             session['search'] = request.form['keywords']
             input = str(session['search'])
-            results = search.searchBlogs(input)
+            results = search.search(input)
             return render_template('searchresults.html', searchresults = results, keyword = input)
     return redirect(url_for("firstLogin"))
 

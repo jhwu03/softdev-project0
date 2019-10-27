@@ -4,7 +4,7 @@
 #Oct 2019
 from utl import readDB
 
-def searchBlogs(search):
+def search(search):
     """From the search input it will check through the blogs list on the homepage to
     see which blogs have usernames, blog numbers, blog names, and entries that contain
     the key word"""
