@@ -11,7 +11,22 @@
     View featured entries:
     <br>
     <br>
-    {{recentEntries}}
+    <table style="width:100%">
+      <tr>
+        <th>Username</th>
+        <th>Blog Number</th>
+        <th>Blog Title</th>
+        <th>Entry Name</th>
+      </tr>
+      {% for blog in recentEntries %}
+        <tr>
+          <td>{{blog[0]}}</td>
+          <td>{{blog[1]}}</td>
+          <td>{{blog[2]}}</td>
+          <td>{{blog[3]}}</td>
+        </tr>
+      {% endfor %}
+    </table>
     <br>
 
 

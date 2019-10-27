@@ -11,6 +11,7 @@ from flask import url_for
 from utl import createDB
 from utl import checkLogin
 from utl import newuser
+from utl import readDB
 import sqlite3
 app = Flask(__name__)
 
@@ -49,8 +50,7 @@ def register():
 def home():
     user = request.args.get('userDATA')
     #VARIABLES TO PASS
-    command = "SELECT blog.username, entries.entry "
-    entries = "DISPLAY RECENT ENTRIES"
+    entries = readDB.getAllBlogs()
     return render_template("home.html",
         username = user,
         recentEntries = entries)
@@ -58,7 +58,7 @@ def home():
 @app.route("/{}".format(username))
 def userPage():
     #username = session[usernae] reutrn specific template
-
+    return 'ha'
 
 if __name__ == "__main__":
     app.debug = True
