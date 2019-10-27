@@ -86,5 +86,20 @@ def getAllBlogs():
     db.close()  #close database
 
     return blogs
-
+def searchUp(search):
+    """From the search input it will check through the blogs list on the homepage to
+    see which blogs have usernames, blog numbers, blog names, and entries that contain
+    the key word"""
+    allBlogs = getAllBlogs()
+    results = []
+    for blog in allBlogs:
+        if search in str(blog[0]):
+            results.append(blog)
+        elif search in str(blog[1]):
+            results.append(blog)
+        elif search in str(blog[2]):
+            results.append(blog)
+        elif search in str(blog[3]):
+            results.append(blog)
+    return results
 print(displayBlogs(0))
