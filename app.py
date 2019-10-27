@@ -14,7 +14,7 @@ from utl import checkLogin
 from utl import checkUser
 from utl import newuser
 from utl import readDB
-from utl import search
+
 import sqlite3
 import os
 app = Flask(__name__)
