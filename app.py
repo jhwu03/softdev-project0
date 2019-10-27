@@ -60,7 +60,7 @@ def register():
             password1 = session['password']
             password2 = session['password2']
             if (password1 == password2):
-                if (newuser.addUser(username, password1) == True):
+                if (newuser.addUser(username, password1) != -1):
                     return redirect(url_for("home"))
                 return render_template('register.html',
                     errorMessage = "Username already taken")
