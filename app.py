@@ -60,16 +60,13 @@ def register():
             password1 = session['password']
             password2 = session['password2']
             if (password1 == password2):
-                print("good passwords")
                 if (newuser.addUser(username, password1) == True):
-                    print("good overall")
                     return redirect(url_for("home"))
                 return render_template('register.html',
                     errorMessage = "Username already taken")
             return render_template('register.html',
                 errorMessage = "Passwords do not match. Please try again.")
-        else:
-            return render_template('register.html',errorMessage = "")
+        return render_template('register.html', errorMessage = "")
 
     #add user checks if account exists (returns false). If DNE, enters into database, returns true
 
@@ -80,9 +77,8 @@ def logout():                                               # route logs out the
     if 'password2' in session:
         session.pop('password2')
     return redirect(url_for("firstLogin"))                # redirect to beginning
-@app.route("/gotogegister", methods=["GET"])
-def reg():
-    return  redirect(url_for("register"))
+
+
 @app.route("/home")
 def home():
     user = session['username']
