@@ -22,6 +22,8 @@ createDB.createTable() #always create tables when first run, just in case tables
 
 @app.route("/")
 def firstLogin():
+    if ('username' in session and 'password' in session):
+        redirect(url_for("home"))
     return render_template('login.html',errorMessage = "")
 
 @app.route("/login", methods=["POST"])
