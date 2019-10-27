@@ -24,3 +24,17 @@ def addEntry(userid, blogid, entrytext):
 
     db.commit() #save changes
     db.close()  #close database
+
+def editEntry(userid, blogid, entrynum, entrytext):
+    DB_FILE="../data/databases.db"
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    #==========================================================
+    command = "UPDATE entries SET entry_text = \"{}\" WHERE user_id = {} AND blog_id = {} AND entry_num = {};".format(entrytext, userid, blogid, entrynum)
+    c.execute(command)
+    #==========================================================
+
+    db.commit() #save changes
+    db.close()  #close database
