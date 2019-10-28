@@ -167,8 +167,17 @@ def addEntry(blogid):
             return redirect("/user/" + session['username'] + "/blog/" + blogid)
         return render_template('addEntry.html', user = user, userid = userid, blogid = blogid)
     return redirect(url_for("firstLogin"))
-@app.route("/editEntry/<entrynum>", methods=['GET'])
-def editBlog(entrynum):
+@app.route("/editEntry/blog/<blogid>/entry/<entrynum>", methods=['POST'])
+def editBlog(blogid, entrynum):
+    if ('username' in session and 'password' in session):
+        user = session['username']
+        userid = readDB.getUserID(session['username'])
+        #print(request.form)
+        if('entry' in request.form and request.form['entry'] != ""):
+            addDB.editEntry(int(readDB.getUserID(session['username'])), blogid, entrynum, str(request.form['entry']))
+            return redirect("/user/" + session['username'] + "/blog/" + blogid)
+        return render_template('editEntry.html', user = user, userid = userid, blogid = blogid, entrynum = entrynum, oldentry = readDB.getEntry(userid,blogid,entrynum))
+    return redirect(url_for("firstLogin"))
     return "edit page"
 
 if __name__ == "__main__":

@@ -6,15 +6,16 @@
 
 {% block body %}
 
-    <h3> Add An Entry </h3>
+    <h3> Edit An Entry </h3>
     <br>
     Entry:
-    <form action='/addEntry/{{ blogid }}', method="POST">
+    <form action='/editEntry/blog/{{ blogid }}/entry/{{entrynum}}', method="POST">
 
         <textarea name = entry rows="4" cols="50">
+          {{oldentry}}
         </textarea>
         <br>
-        <input type = 'submit' value = "Add Entry" >
+        <input type = 'submit' value = "Save" >
     </form>
     <br>
     <br>
