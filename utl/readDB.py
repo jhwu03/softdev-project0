@@ -106,6 +106,7 @@ def displayOnlyEntries(username, blogid):
             final.append([])
             final[len(final)-1].append(entry[2])
             final[len(final)-1].append(entry[3])
+            final[len(final)-1].append(entry[1])
 
     #==========================================================
     db.commit() #save changes
