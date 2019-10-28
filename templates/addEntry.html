@@ -6,12 +6,13 @@
 
 {% block body %}
 
-    <h3> Add A Blog </h3>
+    <h3> Add An Entry </h3>
     <br>
-    <form action='/addBlog', method="POST">
-        Blog Title:
-        <input type = 'text' name = 'title' >
-        <input type = 'submit' value = "Add Blog" >
+    <form action='/addEntry/{{ blogid }}', method="POST">
+        Entry:
+        <textarea name = entry rows="4" cols="50">
+        </textarea>
+        <input type = 'submit' value = "Add Entry" >
     </form>
     <br>
     <br>

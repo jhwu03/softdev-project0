@@ -118,15 +118,17 @@ def blogPage(user,blogid):
 
     if ('username' in session and 'password' in session):
         entries = readDB.displayOnlyEntries(user, blogid)
-        print(entries)
+        #print(entries)
         if (user == session["username"]):
             return render_template("blog.html",
                 user = user,
                 blogid = blogid,
+                blogname = readDB.getBlogName(blogid),
                 myEntries = entries)
         return render_template("otherBlog.html",
             user = user,
             blogid = blogid,
+            blogname = readDB.getBlogName(blogid),
             theirEntries=entries)
     return redirect(url_for("firstLogin"))
     return "blog page"
@@ -146,11 +148,23 @@ def addBlog():
     if ('username' in session and 'password' in session):
         user = session['username']
         userid = readDB.getUserID(session['username'])
-        print(request.form)
+        #print(request.form)
         if('title' in request.form and request.form['title'] != ""):
             addDB.createBlog(int(readDB.getUserID(session['username'])), str(request.form['title']))
             return redirect("/user/" + session['username'])
         return render_template('addBlog.html', user = user, userid = userid)
+    return redirect(url_for("firstLogin"))
+
+@app.route("/addEntry/<blogid>", methods=['POST'])
+def addEntry(blogid):
+    if ('username' in session and 'password' in session):
+        user = session['username']
+        userid = readDB.getUserID(session['username'])
+        print(request.form)
+        if('entry' in request.form and request.form['entry'] != ""):
+            addDB.addEntry(int(readDB.getUserID(session['username'])), blogid, str(request.form['entry']))
+            return redirect("/user/" + session['username'])
+        return render_template('addEntry.html', user = user, userid = userid, blogid = blogid)
     return redirect(url_for("firstLogin"))
 @app.route("/editEntry/<entrynum>", methods=['GET'])
 def editBlog(entrynum):

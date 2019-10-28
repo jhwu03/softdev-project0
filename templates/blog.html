@@ -9,7 +9,12 @@
     <h3> {{user}}'s Entries </h3>
 
     <br>
-    Blog Title: {{myEntries[0][2]}}
+    <form action='/addEntry/{{blogid}}', method="POST">
+        <input type = 'submit' value = "Add Entry" >
+    </form>
+    <br>
+    <br>
+    Blog Title: {{blogname}}
     <br>
     <br>
     Your Entries:

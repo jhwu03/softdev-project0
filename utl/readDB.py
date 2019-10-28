@@ -159,6 +159,24 @@ def getUserID(username):
     db.commit() #save changes
     db.close()  #close database
 
+def getBlogName(blogid):
+    DB_FILE="data/databases.db"
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    #==========================================================
+    command = "SELECT blog_name FROM blogs WHERE blog_id = \"{}\";".format(blogid)
+    c.execute(command)
+    q = c.fetchall()
+    if len(q) > 0:
+        return q[0][0]
+    else:
+        return -1
+    #==========================================================
+    db.commit() #save changes
+    db.close()  #close database
+
 def searchUp(keywords):
     """From the search input it will check through the blogs list on the homepage to
     see which blogs have usernames, blog numbers, blog names, and entries that contain
