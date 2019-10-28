@@ -1,3 +1,9 @@
+zouJ -- 2019-10-28 7:07
+NEW:
+- Editing and adding blogs on site
+- Viewing blogs on site
+- Done
+
 zouJ -- 2019-10-27 18:58
 NEW:
 - All add/edit methods for the databases work
