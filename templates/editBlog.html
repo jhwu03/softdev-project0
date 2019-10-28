@@ -1,0 +1,22 @@
+{% extends "header.html" %}
+
+{% block title %}
+{{username}} -- {{blogTitle}}
+{% endblock %}
+
+{% block body %}
+<form action='/{{userProfile}}'>
+    <textarea rows='10' cols='100'>{{blogData}}
+    </textarea>
+    <br>
+    <input type = 'submit' name = 'sub1' value = 'Save'>
+    <input type = 'submit' name = 'sub1' value = 'Cancel'>
+</form>
+<!--
+<form action="{{userProfile}}>
+    <textarea rows="4" cols="50">
+        {{blogData}}
+    </textarea>
+</form>
+-->
+{% endblock %}
