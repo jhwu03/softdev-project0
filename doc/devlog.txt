@@ -3,7 +3,7 @@ NEW:
 - All add/edit methods for the databases work
 CHANGES:
 - Every new blog that is created will be initialized with a pilot entry
-- Display methods can be assessed using username instead of ID 
+- Display methods can be assessed using username instead of ID
 
 ohC -- 2019-10-27 15:30
 NEW:
@@ -12,6 +12,9 @@ NEW:
 - Fixed login to work with sessions and register as well
 - Made it so user can traverse between login and register
 - Created the search bar
+- Displayed Blogs and entries
+- Made it so users can view blogs from homepage and search
+- Full traversal of blog is made possible
 
 ohC -- 2019-10-24 14:30
 NEW:
