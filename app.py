@@ -78,8 +78,11 @@ def logout():      # route logs out the user by getting rid of username and pass
     return redirect(url_for("firstLogin"))                # redirect to beginning
 
 
-@app.route("/home")
+@app.route("/home", methods = ["GET", "POST"])
 def home():
+    print(request.form)
+    if('profileRedirect' in request.form):
+        return redirect("/user/" + session['username'])
     if ('username' in session and 'password' in session):
         user = session['username']
         #VARIABLES TO PASS
@@ -129,7 +132,7 @@ def addBlog():
     return "add page"
 
 @app.route("/editBlog", methods=['GET'])
-def addBlog():
+def editBlog():
     return "edit page"
 
 if __name__ == "__main__":

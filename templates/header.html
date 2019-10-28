@@ -18,11 +18,11 @@
                 <input type = 'submit' name = 'search1', value = 'Search'>
             </form>
 
-            <form action='/user', method="GET">
-                <input type = 'submit' name = 'profile' value = "Profile">
+            <form action='/home', method="POST">
+                <input type = 'submit' name = 'profileRedirect' value = "Profile">
             </form>
 
-            <form action='/home'>
+            <form action='/home', method="GET">
                 <input type = 'submit' name = 'home' value = "Home">
             </form>
             {% endblock %}
