@@ -21,7 +21,7 @@
     <br>
     {% for row in myBlogs %}
         {{row[1]}}
-        <form action='/{{user}}/{{row[1]}}', method="POST">
+        <form action='/user/{{user}}/blog/{{row[0]}}'>
             <input type = 'submit' value = "View Blog">
         </form>
     {% endfor %}

@@ -110,12 +110,11 @@ def userPage(user):
     return redirect(url_for("firstLogin"))
 
 
-@app.route("/<user>/<blog>")
-def blogPage(user):
-
+@app.route("/user/<user>/blog/<blogid>")
+def blogPage(user,blogid):
     return "blog page"
 
-@app.route("/<user>/<blog>/<entry>")
+@app.route("/user/<user>/<blog>/<entry>")
 def entryPage(user):
     return "entry page"
 
