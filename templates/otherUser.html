@@ -6,13 +6,16 @@
 
 {% block body %}
 
-    <h3> {{user}} </h3>
+    <h3> {{user}}'s Blogs </h3>
     <br>
     Blogs:
     <br>
     <br>
     {% for row in theirBlogs %}
         {{row[1]}}
+        <form action='/user/{{user}}/blog/{{row[0]}}'>
+            <input type = 'submit' value = "View Blog">
+        </form>
     {% endfor %}
     <br>
 

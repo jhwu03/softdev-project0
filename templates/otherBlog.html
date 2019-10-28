@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+
+{% block title %}
+    TOPZ BLOG
+{% endblock %}
+
+{% block body %}
+
+    <h3> {{user}}'s Entries </h3>
+
+    <br>
+
+    <br>
+    <br>
+    Your Entries:
+    <br>
+    <br>
+    {% for entry in theirEntries %}
+        {{entry}}
+    {% endfor %}
+    <br>
+
+    <br><br><br><br><br>
+{% endblock %}
