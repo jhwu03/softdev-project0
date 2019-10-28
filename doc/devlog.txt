@@ -13,14 +13,20 @@ CHANGES:
 
 ohC -- 2019-10-27 15:30
 NEW:
-- Displayed all the featured entries on homepage
-- Made program use session
-- Fixed login to work with sessions and register as well
-- Made it so user can traverse between login and register
 - Created the search bar
 - Displayed Blogs and entries
 - Made it so users can view blogs from homepage and search
 - Full traversal of blog is made possible
+
+ohC -- 2019-10-26 18:25
+- Displayed all the featured entries on homepage
+- Made program use session
+- Fixed login to work with sessions and register as well
+- Made it so user can traverse between login and register
+
+tanM -- 2019-10-25 21:13
+Began building login and register methods and check user methods. Ran into problems with connecting each page.
+Currently behind schedule because of unexpected errors.
 
 ohC -- 2019-10-24 14:30
 NEW:
