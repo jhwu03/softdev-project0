@@ -59,6 +59,8 @@ def register():
             username = session['username']
             password1 = session['password']
             password2 = session['password2']
+            if password1 == '' or password2 == '':
+                return render_template('register.html', errorMessage = 'Password cannot be blank')
             if (password1 == password2):
                 if (newuser.addUser(username, password1) != -1):
                     return redirect(url_for("home"))
@@ -99,7 +101,7 @@ def home():
 
 @app.route("/user/<user>")
 def userPage(user):
-    #username = session[usernae] reutrn specific template
+    #username = session[username] return specific template
     # if user DNE: return error template
 
     if ('username' in session and 'password' in session):
@@ -115,10 +117,10 @@ def userPage(user):
 
 @app.route("/user/<user>/blog/<blogid>")
 def blogPage(user,blogid):
-
     if ('username' in session and 'password' in session):
         userid = readDB.getUserID(user)
         entries = readDB.displayOnlyEntries(user, blogid)
+        print(session)
         #print(entries)
         if (user == session["username"]):
             return render_template("blog.html",
@@ -132,7 +134,6 @@ def blogPage(user,blogid):
             blogname = readDB.getBlogName(userid,blogid),
             theirEntries=entries)
     return redirect(url_for("firstLogin"))
-    return "blog page"
 
 @app.route("/search", methods = ['POST'])
 def search():
@@ -167,6 +168,7 @@ def addEntry(blogid):
             return redirect("/user/" + session['username'] + "/blog/" + blogid)
         return render_template('addEntry.html', user = user, userid = userid, blogid = blogid)
     return redirect(url_for("firstLogin"))
+
 @app.route("/editEntry/blog/<blogid>/entry/<entrynum>", methods=['POST'])
 def editBlog(blogid, entrynum):
     if ('username' in session and 'password' in session):
@@ -178,7 +180,6 @@ def editBlog(blogid, entrynum):
             return redirect("/user/" + session['username'] + "/blog/" + blogid)
         return render_template('editEntry.html', user = user, userid = userid, blogid = blogid, entrynum = entrynum, oldentry = readDB.getEntry(userid,blogid,entrynum))
     return redirect(url_for("firstLogin"))
-    return "edit page"
 
 if __name__ == "__main__":
     app.debug = True
