@@ -47,7 +47,6 @@ def login():
 
 
 @app.route("/register", methods=["POST"])
-
 def register():
     if(request.form['sub1'] == 'Log In'):
         return redirect(url_for("firstLogin"))
@@ -95,13 +94,16 @@ def home():
 def userPage(user):
     #username = session[usernae] reutrn specific template
     # if user DNE: return error template
-    if (user == session["username"]):
-        return render_template("user.html",
+    if (session):
+        if (user == session["username"]):
+            return render_template("user.html",
+                user = user,
+                myBlogs = readDB.displayBlogs(user))
+        return render_template("otherUser.html",
             user = user,
-            myBlogs = readDB.displayBlogs(user))
-    return render_template("otherUser.html",
-        user = user,
-        theirBlogs=readDB.displayBlogs(user))
+            theirBlogs=readDB.displayBlogs(user))
+    return redirect(url_for("firstLogin"))
+
 
 @app.route("/<user>/<blog>")
 def blogPage(user):
@@ -121,6 +123,14 @@ def search():
             results = readDB.searchUp(input)
             return render_template('searchresults.html', searchresults = results, keyword = input)
     return redirect(url_for("firstLogin"))
+
+@app.route("/addBlog", methods=['GET'])
+def addBlog():
+    return "add page"
+
+@app.route("/editBlog", methods=['GET'])
+def addBlog():
+    return "edit page"
 
 if __name__ == "__main__":
     app.debug = True
