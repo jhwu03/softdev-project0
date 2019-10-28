@@ -110,14 +110,26 @@ def userPage(user):
     return redirect(url_for("firstLogin"))
 
 
-@app.route("/<user>/<blog>")
-def blogPage(user):
+@app.route("/user/<user>/blog/<blogid>")
+def blogPage(user,blogid):
 
+    if (session):
+        entries = readDB.displayEntries(user, blogid)
+        entries.pop(0)
+        entries.pop(0)
+        entries.pop(0)
+        print(entries)
+        if (user == session["username"]):
+            return render_template("blog.html",
+                user = user,
+                blogid = blogid,
+                myEntries = entries)
+        return render_template("otherBlog.html",
+            user = user,
+            blogid = blogid,
+            theirEntries=entries)
+    return redirect(url_for("firstLogin"))
     return "blog page"
-
-@app.route("/<user>/<blog>/<entry>")
-def entryPage(user):
-    return "entry page"
 
 @app.route("/search", methods = ['POST'])
 def search():
@@ -133,8 +145,8 @@ def search():
 def addBlog():
     return "add page"
 
-@app.route("/editBlog", methods=['GET'])
-def editBlog():
+@app.route("/editEntry/<entrynum>", methods=['GET'])
+def editBlog(entrynum):
     return "edit page"
 
 if __name__ == "__main__":

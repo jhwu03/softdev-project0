@@ -6,14 +6,12 @@
 
 {% block body %}
 
-    <h3> {{user}} </h3>
+    <h3> {{user}}'s Blogs </h3>
+    <br>
     <form action='/addBlog', method="GET">
         <input type = 'submit' value = "addBlog" >
     </form>
     <br>
-    <form action='/editBlog', method="GET">
-        <input type = 'submit' value = "editBlog" >
-    </form>
     <br>
     <br>
     Your Blogs:
@@ -21,7 +19,7 @@
     <br>
     {% for row in myBlogs %}
         {{row[1]}}
-        <form action='/{{user}}/{{row[1]}}', method="POST">
+        <form action='/user/{{user}}/blog/{{row[0]}}'>
             <input type = 'submit' value = "View Blog">
         </form>
     {% endfor %}
