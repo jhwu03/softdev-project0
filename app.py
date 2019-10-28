@@ -71,11 +71,13 @@ def register():
 
 @app.route("/logout", methods=["GET"])
 def logout():      # route logs out the user by getting rid of username and password in session
-    session.pop('username')
-    session.pop('password')
-    if 'password2' in session:
-        session.pop('password2')
-    return redirect(url_for("firstLogin"))                # redirect to beginning
+    if ('username' in session and 'password' in session):
+        session.pop('username')
+        session.pop('password')
+        if 'password2' in session:
+            session.pop('password2')
+        return redirect(url_for("firstLogin"))                # redirect to beginning
+    return redirect(url_for("firstLogin"))                # redirect to beginning    
 
 
 @app.route("/home", methods = ["GET", "POST"])
@@ -99,7 +101,7 @@ def userPage(user):
     #username = session[usernae] reutrn specific template
     # if user DNE: return error template
 
-    if (session):
+    if ('username' in session and 'password' in session):
         if (user == session["username"]):
             return render_template("user.html",
                 user = user,
@@ -113,7 +115,7 @@ def userPage(user):
 @app.route("/user/<user>/blog/<blogid>")
 def blogPage(user,blogid):
 
-    if (session):
+    if ('username' in session and 'password' in session):
         entries = readDB.displayOnlyEntries(user, blogid)
         print(entries)
         if (user == session["username"]):
