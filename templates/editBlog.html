@@ -1,16 +1,18 @@
 {% extends "header.html" %}
 
 {% block title %}
-{{username}} -- {{blogTitle}}
+{{blogTitle}} - {{entryTitle}}
 {% endblock %}
 
 {% block body %}
 <form action='/{{userProfile}}'>
-    <textarea rows='10' cols='100'>{{blogData}}
-    </textarea>
-    <br>
-    <input type = 'submit' name = 'sub1' value = 'Save'>
-    <input type = 'submit' name = 'sub1' value = 'Cancel'>
+    {% for blog in blogs %}
+        <br>
+        <textarea rows='10' cols='100'>{{entry}}
+        </textarea>
+    {% endfor %}
+    <input type = 'submit' name = 'save' value = 'save'>
+    <input type = 'submit' name = 'cancel' value = 'Cancel'>
 </form>
 <!--
 <form action="{{userProfile}}>

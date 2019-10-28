@@ -140,13 +140,14 @@ def editBlog():
         if('profileRedirect' in request.form):
             return redirect("/user/" + session['username'])
         user = session['username']
-    return render_template(
-        "editBlog.html",
-        username = "<user>",
-        userProfile = "tmp",
-        blogTitle = "tmp",
-        blogData = readDB.displayEntries(username, tmp)
-    )
+        blog = session['blog']
+        return render_template(
+            "editBlog.html",
+            userProfile = user,
+            blogTitle = "tmp",
+            blogs = readDB.displayBlogs(getUserID(user)),
+      )
+    return redirect(url_for("firstLogin"))
 
 if __name__ == "__main__":
     app.debug = True
