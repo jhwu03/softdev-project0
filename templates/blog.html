@@ -16,8 +16,8 @@
     <br>
     <br>
     {% for entry in myEntries %}
-        {{entry}}
-        <form action='/editEntry/{{entry[1]}}', method="GET">
+        Entry#{{entry[0]}}: {{entry[1]}}
+        <form action='/editEntry/{{entry[0]}}', method="GET">
             <input type = 'submit' value = "Edit" >
         </form>
     {% endfor %}

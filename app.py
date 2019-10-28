@@ -114,10 +114,7 @@ def userPage(user):
 def blogPage(user,blogid):
 
     if (session):
-        entries = readDB.displayEntries(user, blogid)
-        entries.pop(0)
-        entries.pop(0)
-        entries.pop(0)
+        entries = readDB.displayOnlyEntries(user, blogid)
         print(entries)
         if (user == session["username"]):
             return render_template("blog.html",
