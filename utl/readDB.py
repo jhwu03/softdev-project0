@@ -159,14 +159,14 @@ def getUserID(username):
     db.commit() #save changes
     db.close()  #close database
 
-def getBlogName(blogid):
+def getBlogName(userid,blogid):
     DB_FILE="data/databases.db"
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
     #==========================================================
-    command = "SELECT blog_name FROM blogs WHERE blog_id = \"{}\";".format(blogid)
+    command = "SELECT blog_name FROM blogs WHERE blog_id = \"{}\" AND blogs.user_id = \"{}\";".format(blogid, userid)
     c.execute(command)
     q = c.fetchall()
     if len(q) > 0:

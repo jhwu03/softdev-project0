@@ -117,18 +117,19 @@ def userPage(user):
 def blogPage(user,blogid):
 
     if ('username' in session and 'password' in session):
+        userid = readDB.getUserID(user)
         entries = readDB.displayOnlyEntries(user, blogid)
         #print(entries)
         if (user == session["username"]):
             return render_template("blog.html",
                 user = user,
                 blogid = blogid,
-                blogname = readDB.getBlogName(blogid),
+                blogname = readDB.getBlogName(userid,blogid),
                 myEntries = entries)
         return render_template("otherBlog.html",
             user = user,
             blogid = blogid,
-            blogname = readDB.getBlogName(blogid),
+            blogname = readDB.getBlogName(userid,blogid),
             theirEntries=entries)
     return redirect(url_for("firstLogin"))
     return "blog page"
