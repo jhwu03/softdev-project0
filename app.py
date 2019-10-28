@@ -80,10 +80,11 @@ def logout():      # route logs out the user by getting rid of username and pass
 
 @app.route("/home", methods = ["GET", "POST"])
 def home():
-    print(request.form)
-    if('profileRedirect' in request.form):
-        return redirect("/user/" + session['username'])
+    #print(request.form)
+
     if ('username' in session and 'password' in session):
+        if('profileRedirect' in request.form):
+            return redirect("/user/" + session['username'])
         user = session['username']
         #VARIABLES TO PASS
         entries = readDB.getAllBlogs()
@@ -97,6 +98,7 @@ def home():
 def userPage(user):
     #username = session[usernae] reutrn specific template
     # if user DNE: return error template
+
     if (session):
         if (user == session["username"]):
             return render_template("user.html",
