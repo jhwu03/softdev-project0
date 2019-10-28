@@ -6,14 +6,12 @@
 
 {% block body %}
 
-    <h3> {{user}} </h3>
+    <h3> {{user}}'s Blogs </h3>
+    <br>
     <form action='/addBlog', method="GET">
         <input type = 'submit' value = "addBlog" >
     </form>
     <br>
-    <form action='/editBlog', method="GET">
-        <input type = 'submit' value = "editBlog" >
-    </form>
     <br>
     <br>
     Your Blogs:
