@@ -6,24 +6,20 @@
 
 {% block body %}
 
-    <h3> {{user}}'s Blogs </h3>
+    <h3> Add A Blog </h3>
     <br>
     <form action='/addBlog', method="POST">
+        Blog Title:
+        <input type = 'text' name = 'title' >
         <input type = 'submit' value = "addBlog" >
     </form>
     <br>
     <br>
     <br>
-    Your Blogs:
-    <br>
-    <br>
-    {% for row in myBlogs %}
-        {{row[1]}}
-        <form action='/user/{{user}}/blog/{{row[0]}}'>
-            <input type = 'submit' value = "View Blog">
-        </form>
-    {% endfor %}
-    <br>
 
+    <br>
+    <form action='/user/{{user}}'>
+        <input type = 'submit' value = "Back">
+    </form>
     <br><br><br><br><br>
 {% endblock %}

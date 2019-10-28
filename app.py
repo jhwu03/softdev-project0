@@ -14,6 +14,7 @@ from utl import checkLogin
 from utl import checkUser
 from utl import newuser
 from utl import readDB
+from utl import addDB
 
 import sqlite3
 import os
@@ -77,7 +78,7 @@ def logout():      # route logs out the user by getting rid of username and pass
         if 'password2' in session:
             session.pop('password2')
         return redirect(url_for("firstLogin"))                # redirect to beginning
-    return redirect(url_for("firstLogin"))                # redirect to beginning    
+    return redirect(url_for("firstLogin"))                # redirect to beginning
 
 
 @app.route("/home", methods = ["GET", "POST"])
@@ -140,10 +141,17 @@ def search():
             return render_template('searchresults.html', searchresults = results, keyword = input)
     return redirect(url_for("firstLogin"))
 
-@app.route("/addBlog", methods=['GET'])
+@app.route("/addBlog", methods=['POST'])
 def addBlog():
-    return "add page"
-
+    if ('username' in session and 'password' in session):
+        user = session['username']
+        userid = readDB.getUserID(session['username'])
+        print(request.form)
+        if('title' in request.form and request.form['title'] != ""):
+            addDB.createBlog(int(readDB.getUserID(session['username'])), str(request.form['title']))
+            return redirect("/user/" + session['username'])
+        return render_template('addBlog.html', user = user, userid = userid)
+    return redirect(url_for("firstLogin"))
 @app.route("/editEntry/<entrynum>", methods=['GET'])
 def editBlog(entrynum):
     return "edit page"
