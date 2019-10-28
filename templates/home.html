@@ -24,6 +24,11 @@
           <td>{{row[1]}}</td>
           <td>{{row[2]}}</td>
           <td>{{row[3]}}</td>
+          <td>
+            <form action='/user/{{row[0]}}/blog/{{row[1]}}'>
+                <input type = 'submit' value = "View Blog">
+            </form>
+          </td>
         </tr>
       {% endfor %}
     </table>

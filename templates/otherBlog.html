@@ -12,13 +12,18 @@
 
     <br>
     <br>
-    Your Entries:
+    Their Entries:
     <br>
     <br>
     {% for entry in theirEntries %}
         {{entry}}
+        <br>
+        <br>
     {% endfor %}
     <br>
 
     <br><br><br><br><br>
+    <form action='/user/{{user}}', method="GET">
+        <input type = 'submit' value = "Back" >
+    </form>
 {% endblock %}
