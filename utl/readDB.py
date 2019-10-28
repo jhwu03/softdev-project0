@@ -194,6 +194,7 @@ def getEntry(userid, blogid, entryid):
     #==========================================================
     db.commit() #save changes
     db.close()  #close database
+    
 def searchUp(keywords):
     """From the search input it will check through the blogs list on the homepage to
     see which blogs have usernames, blog numbers, blog names, and entries that contain
