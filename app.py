@@ -112,7 +112,6 @@ def userPage(user):
 
 @app.route("/<user>/<blog>")
 def blogPage(user):
-
     return "blog page"
 
 @app.route("/<user>/<blog>/<entry>")
@@ -135,7 +134,19 @@ def addBlog():
 
 @app.route("/editBlog", methods=['GET'])
 def editBlog():
-    return "edit page"
+    """Let's you edit specific blog entries"""
+    # Codes redirect to profile page
+    if ('username' in session and 'password' in session):
+        if('profileRedirect' in request.form):
+            return redirect("/user/" + session['username'])
+        user = session['username']
+    return render_template(
+        "editBlog.html",
+        username = "<user>",
+        userProfile = "tmp",
+        blogTitle = "tmp",
+        blogData = readDB.displayEntries(username, tmp)
+    )
 
 if __name__ == "__main__":
     app.debug = True
