@@ -163,7 +163,7 @@ def addEntry(blogid):
         print(request.form)
         if('entry' in request.form and request.form['entry'] != ""):
             addDB.addEntry(int(readDB.getUserID(session['username'])), blogid, str(request.form['entry']))
-            return redirect("/user/" + session['username'])
+            return redirect("/user/" + session['username'] + "/blog/" + blogid)
         return render_template('addEntry.html', user = user, userid = userid, blogid = blogid)
     return redirect(url_for("firstLogin"))
 @app.route("/editEntry/<entrynum>", methods=['GET'])
