@@ -18,7 +18,6 @@ def displayBlogs(username):
     command = "SELECT blogs.user_id, blogs.blog_id, blog_name, entry_num, entry_text FROM blogs INNER JOIN entries ON blogs.user_id = entries.user_id AND blogs.blog_id = entries.blog_id WHERE blogs.user_id = {};".format(userid)
     c.execute(command)
     q = c.fetchall()
-    print(q)
     final = []
     for entry in q:
         index = entry[1] - 1
@@ -47,7 +46,6 @@ def displayBlogsID(userid):
     command = "SELECT blogs.user_id, blogs.blog_id, blog_name, entry_num, entry_text FROM blogs INNER JOIN entries ON blogs.user_id = entries.user_id AND blogs.blog_id = entries.blog_id WHERE blogs.user_id = {};".format(userid)
     c.execute(command)
     q = c.fetchall()
-    print(q)
     final = []
     for entry in q:
         index = entry[1] - 1
@@ -74,14 +72,15 @@ def displayEntries(username, blogid):
 
     #==========================================================
     userid = getUserID(username)
-    command = "SELECT blog_name, entry_num, entry_text FROM blogs INNER JOIN entries ON blogs.user_id = entries.user_id AND blogs.blog_id = entries.blog_id WHERE blogs.user_id = {} AND blogs.blog_id = {};".format(userid, blogid)
+    command = "SELECT blogs.blog_id, blog_name, entry_num, entry_text FROM blogs INNER JOIN entries ON blogs.user_id = entries.user_id AND blogs.blog_id = entries.blog_id WHERE blogs.user_id = {} AND blogs.blog_id = {};".format(userid, blogid)
     c.execute(command)
     q = c.fetchall()
+    print(q)
     final = []
-    final.append(q[0][1])
     final.append(q[0][0])
+    final.append(q[0][1])
     for entry in q:
-        final.append(entry[2])
+        final.append(entry[3])
 
     #==========================================================
     db.commit() #save changes
