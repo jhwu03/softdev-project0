@@ -88,6 +88,31 @@ def displayEntries(username, blogid):
 
     return final
 
+def displayOnlyEntries(username, blogid):
+    DB_FILE="data/databases.db"
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    #==========================================================
+    userid = getUserID(username)
+    command = "SELECT blogs.blog_id, blog_name, entry_num, entry_text FROM blogs INNER JOIN entries ON blogs.user_id = entries.user_id AND blogs.blog_id = entries.blog_id WHERE blogs.user_id = {} AND blogs.blog_id = {};".format(userid, blogid)
+    c.execute(command)
+    q = c.fetchall()
+    q.pop(0)
+    final = []
+    if len(q) > 0:
+        for entry in q:
+            final.append([])
+            final[len(final)-1].append(entry[2])
+            final[len(final)-1].append(entry[3])
+
+    #==========================================================
+    db.commit() #save changes
+    db.close()  #close database
+
+    return final
+
 def getAllBlogs():
     """Returns the last entry for every existing blog. This will be primarily used in the featured section of the home page. Return value will be a list formatted as [blog1, blog2...]. blog1 will be [blog1_name, entry]"""
     DB_FILE="data/databases.db"
