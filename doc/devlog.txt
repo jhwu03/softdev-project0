@@ -1,55 +1,21 @@
-zouJ -- 2019-10-28 7:07
-NEW:
-- Editing and adding blogs on site
-- Viewing blogs on site
-- Done
+tanM -- 2019-10-20 21:00
+created devlog.txt, added design.pdf, created README.md
 
-zouJ -- 2019-10-27 18:58
-NEW:
-- All add/edit methods for the databases work
-CHANGES:
-- Every new blog that is created will be initialized with a pilot entry
-- Display methods can be assessed using username instead of ID
-
-ohC -- 2019-10-27 15:30
-NEW:
-- Created the search bar
-- Displayed Blogs and entries
-- Made it so users can view blogs from homepage and search
-- Full traversal of blog is made possible
-
-ohC -- 2019-10-26 18:25
-- Displayed all the featured entries on homepage
-- Made program use session
-- Fixed login to work with sessions and register as well
-- Made it so user can traverse between login and register
-
-tanM -- 2019-10-25 21:13
-Began building login and register methods and check user methods. Ran into problems with connecting each page.
-Currently behind schedule because of unexpected errors.
-
-ohC -- 2019-10-24 14:30
-NEW:
-- started work on displaying the blogs and entries on a page
-
-tanM -- 2019-10-24 22:56
-NEW:
-- login, register pages
-- home page
-- header + inheritance for html files
-- checkLogin method working
-We have almost completed the user aspect of the website. Users should be to log into an existing
-account and register a new account. We have not added functionality for adding blogs and entries
-though. We are currently working on displaying blogs and creating methods to add blogs into databases.
-We are behind schedule but are still expected to finish on time.
-
-tanM -- 2019-10-23 14:45
-Updated the design doc to v2.
-CHANGES:
-- user cannot view pages without login. updated images and site map to follow
-NEW:
-- added picture of components
-Created basic app.py. SQLite databases are created if they do not exist on startup of website.
+tanM -- 2019-10-21 23:31
+Sqlite join: allows SELECT function to return a set with database information from two or more tables. Different JOIN functions
+will return different variations of information, prioritizing different information in each one. This will be useful in linking
+together our users, blogs, and entries tables.
+Sqlite inner join: allows SELECT function to return a set with database information from two different tables if there is a
+corresponding “id” value that is the same between each one. This is useful if we are trying to link users to their blogs, and
+then their blogs to their entries, or all three together. Using this may make linking the three much cleaner, and make it easier
+to display entries with the correct information.
+Sqlite left join: allows SELECT function to return a set with information from one database, and any corresponding information
+from another. In left join, all selected information from the first or “left” database is entered into the set, and all
+corresponding information from the second database is included if they match the LEFT JOIN condition. If they don’t, the
+information from the first set is still included. This is useful for showing all blogs from a user, because it would not be
+hindered if a user does not have any blogs.
+Sqlite cross join: allows SELECT function to return a set that is a product of two or more sets. Each combination that can be
+made using the two databases will be made and returned. Not sure how this is going to be useful in our project.
 
 tanM -- 2019-10-22 1:03
 Article:
@@ -72,21 +38,74 @@ When it comes to using any methods we find online:
 Always suggest we don’t need it unless there is no other way to do it. If we use it, we must understand
 its syntax and why it works for debugging purposes
 
-tanM -- 2019-10-21 23:31
-Sqlite join: allows SELECT function to return a set with database information from two or more tables. Different JOIN functions
-will return different variations of information, prioritizing different information in each one. This will be useful in linking
-together our users, blogs, and entries tables.
-Sqlite inner join: allows SELECT function to return a set with database information from two different tables if there is a
-corresponding “id” value that is the same between each one. This is useful if we are trying to link users to their blogs, and
-then their blogs to their entries, or all three together. Using this may make linking the three much cleaner, and make it easier
-to display entries with the correct information.
-Sqlite left join: allows SELECT function to return a set with information from one database, and any corresponding information
-from another. In left join, all selected information from the first or “left” database is entered into the set, and all
-corresponding information from the second database is included if they match the LEFT JOIN condition. If they don’t, the
-information from the first set is still included. This is useful for showing all blogs from a user, because it would not be
-hindered if a user does not have any blogs.
-Sqlite cross join: allows SELECT function to return a set that is a product of two or more sets. Each combination that can be
-made using the two databases will be made and returned. Not sure how this is going to be useful in our project.
+tanM -- 2019-10-23 14:45
+Updated the design doc to v2.
+CHANGES:
+- user cannot view pages without login. updated images and site map to follow
+NEW:
+- added picture of components
+Created basic app.py. SQLite databases are created if they do not exist on startup of website.
 
-tanM -- 2019-10-20 21:00
-created devlog.txt, added design.pdf, created README.md
+tanM -- 2019-10-24 22:56
+NEW:
+- login, register pages
+- home page
+- header + inheritance for html files
+- checkLogin method working
+We have almost completed the user aspect of the website. Users should be to log into an existing
+account and register a new account. We have not added functionality for adding blogs and entries
+though. We are currently working on displaying blogs and creating methods to add blogs into databases.
+We are behind schedule but are still expected to finish on time.
+
+ohC -- 2019-10-24 14:30
+NEW:
+- started work on displaying the blogs and entries on a page
+- print methods not properly returning data from databases
+
+tanM -- 2019-10-25 21:13
+Began building login and register methods and check user methods. Ran into problems with connecting each page.
+Currently behind schedule because of unexpected errors with login page (method errors).
+
+ohC -- 2019-10-26 18:25
+- Displayed all the featured entries on homepage
+- Made program use session (cookies)
+- Fixed login to work with sessions and register as well
+- Made it so user can traverse between login and register
+
+ohC -- 2019-10-27 15:30
+NEW:
+- Created the search bar. Searches user/blog/entry databases for keyword.
+- Displayed Blogs and entries
+- Made it so users can view blogs from homepage and search
+- Full traversal of blog is made possible
+
+zouJ -- 2019-10-27 18:58
+NEW:
+- All add/edit methods for the databases work. 
+CHANGES:
+- Every new blog that is created will be initialized with a pilot entry
+- Display methods can be assessed using username instead of ID
+
+zouJ -- 2019-10-28 7:07
+NEW:
+- Editing and adding blogs on website now functional.
+- Viewing blogs on site!
+- Done
+
+tanM -- 2019-10-28 14:36
+We have finished our blog. We tested funtionality and checked for errors. Code seems to be good!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
