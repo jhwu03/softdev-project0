@@ -1,0 +1,19 @@
+h1 {
+    color: red;
+}
+header {
+    padding: 0px;
+    background-color: gray;
+}
+
+form {
+display:inline-block;
+}
+
+#logout {
+    float: right;
+}
+
+#search {
+    float: right;
+}

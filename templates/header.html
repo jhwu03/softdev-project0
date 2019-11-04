@@ -2,18 +2,19 @@
 <html lang='en' dir='ltr'>
     <head>
         <meta charset='utf-8'>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 
         <header>
             {% block header %}
-            <h1> TOPZ BLOGZ </h1>
+            <!-- <h1> TOPZ BLOGZ </h1> -->
 
             <!-- Home button brings the user back to the home page -->
-            <form action='/logout', method="GET">
+            <form id = 'logout' action='/logout', method="GET">
                 <input type = 'submit' value = "Logout" >
             </form>
 
             <!-- Search bar to find specific user/blog/entry -->
-            <form action='/search', method="POST">
+            <form id = 'search'action='/search', method="POST">
                 <input type = 'text' name = 'keywords'>
                 <input type = 'submit' name = 'search1', value = 'Search'>
             </form>
